@@ -237,13 +237,14 @@ public class LinkedList<E> {
     }
 
     /**
-     * 从链表中删除元素e
+     * 从链表中删除用户指定的元素e，所以无需返回被删除元素
      * @param e
      */
     public void removeElement(E e){
         Node prev = dummyHead;
         while (prev.next != null){
             if (prev.next.e.equals(e)){
+				//跳出本次循环
                 break;
             }
             prev = prev.next;
