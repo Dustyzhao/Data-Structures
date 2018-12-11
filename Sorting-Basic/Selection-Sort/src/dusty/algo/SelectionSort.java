@@ -1,6 +1,7 @@
 package dusty.algo;
 
 /**
+ * 最基础的选择排序
  * @author DUSTY
  */
 public class SelectionSort {
