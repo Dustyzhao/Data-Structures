@@ -10,19 +10,18 @@ public class SelectionSort {
 
     public static void sort(Comparable[] arr) {
 
-        int n = arr.length;
-        for (int i = 0;i < n ; i ++){
+        for (int i = 0;i < arr.length - 1 ; i ++){
             // 寻找[i, n)区间里的最小值的索引
             // 假设当前索引对应的是最小值
             int minIndex = i;
-            //一次与其后的值进行大小对比，如果比当前值arr[i]小，则交换位置。
-            for (int j = i + 1;j < n;j ++) {
+            //依次与其后的值进行大小对比，如果比当前值arr[i]小，则交换位置，从而找到本次循环的最小值
+            for (int j = i+1 ;j < arr.length;j ++) {
                 // 使用compareTo方法比较两个Comparable对象的大小
                 if (arr[j].compareTo(arr[minIndex]) < 0) {
                     minIndex = j;
                 }
-                swap(arr,i,minIndex);
             }
+            swap(arr,minIndex,i);
         }
 
     }
