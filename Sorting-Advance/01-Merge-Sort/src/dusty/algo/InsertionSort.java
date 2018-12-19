@@ -24,6 +24,13 @@ public class InsertionSort {
         }
     }
 
+    /**
+     * 插入排序算法
+     * 归并排序中数据规模小到一定程度时使用此方法
+     * @param arr
+     * @param l
+     * @param r
+     */
     public static void sort(Comparable[] arr, int l, int r) {
         for (int i = l + 1; i <= r; i++) {
             //寻找arr[i]合适的存放位置
