@@ -5,6 +5,7 @@ import java.util.Arrays;
 /**
  * Merge Sort是一个O(nlogn)复杂度的算法
  * 可以在1秒之内轻松处理100万数量级的数据
+ * 经过两处的优化，归并排序的时间复杂度仍旧是O（nlogn）
  * @author DUSTY
  */
 public class MergeSort {
@@ -16,7 +17,13 @@ public class MergeSort {
      * @param r 数组最后一个元素
      */
     private static void sort(Comparable[] arr, int l, int r) {
-        if (l >= r) {
+//        if (l >= r) {
+//            return;
+//        }
+        // 优化2: 对于小规模数组, 使用插入排序,对上面的语句优化为：这里的n(规模)可调整
+        int n = 15;
+        if( r - l <= n ){
+            InsertionSort.sort(arr, l, r);
             return;
         }
 
@@ -24,7 +31,11 @@ public class MergeSort {
         sort(arr, l, mid);
         sort(arr, mid + 1, r);
         //向上归并的过程
-        merge(arr,l,mid,r);
+//        merge(arr,l,mid,r);
+        // 优化1：对于近乎有序的数组非常有效,但是对于一般情况,有一定的性能损失。上面的语句可优化为：
+        if (arr[mid].compareTo(arr[mid+1]) > 0 ) {
+            merge(arr,l,mid,r);
+        }
     }
 
     /**

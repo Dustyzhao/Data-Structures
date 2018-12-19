@@ -24,6 +24,20 @@ public class InsertionSort {
         }
     }
 
+    public static void sort(Comparable[] arr, int l, int r) {
+        for (int i = l + 1; i <= r; i++) {
+            //寻找arr[i]合适的存放位置
+            Comparable e = arr[i];
+            //j保存e应该存放的位置
+            int j = i;
+            for ( j = i; j > 1 && arr[j-1].compareTo(e) > 0; j--) {
+
+                arr[j] = arr[j - 1];
+            }
+            //j的一次循环完毕之后，说明arr[j]已找到自己合适的位置，此时就是e的位置。
+            arr[j] = e;
+        }
+    }
 
 
     /**
@@ -38,4 +52,6 @@ public class InsertionSort {
         SortTestHelper.testSort("dusty.algo.InsertionSort",array);
         SortTestHelper.printArray(array);
     }
+
+
 }
