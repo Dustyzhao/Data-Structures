@@ -42,7 +42,11 @@ public class MergeSort {
          */
         Comparable[] aux = Arrays.copyOfRange(arr,l,r+1);
 
-        //初始化，i指向左半部分的起始索引位置，j指向右半部分起始索引位置mid+1
+        /**
+         * 定义i、j、k用来跟踪数组排序进度，i、j为当前进行比较的元素，k为已排序序列的下一位置
+         * 初始化时，i指向左半部分的起始索引位置，j指向右半部分起始索引位置mid+1，k为待排序序列起始位置
+         *
+         */
         int i = l,j = mid+1;
         for (int k = l; k <= r; k++) {
             //考虑到“越界”问题
