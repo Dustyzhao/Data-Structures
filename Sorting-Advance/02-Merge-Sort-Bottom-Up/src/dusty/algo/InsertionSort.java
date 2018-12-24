@@ -37,12 +37,13 @@ public class InsertionSort {
             Comparable e = arr[i];
             //j保存e应该存放的位置
             int j = i;
-            for ( j = i; j > 1 && arr[j-1].compareTo(e) > 0; j--) {
+            for ( j = i; j > 0 && arr[j-1].compareTo(e) > 0; j--) {
 
                 arr[j] = arr[j - 1];
             }
             //j的一次循环完毕之后，说明arr[j]已找到自己合适的位置，此时就是e的位置。
             arr[j] = e;
+            break;
         }
     }
 

@@ -97,8 +97,10 @@ public class MergeSort {
      */
     public static void main(String[] args){
 
-        int N = 100000;
+        int N = 10;
         Integer[] array = SortTestHelper.generateRandomArray(N, 0, 1000);
+        SortTestHelper.printArray(array);
         SortTestHelper.testSort("dusty.algo.MergeSort",array);
+        SortTestHelper.printArray(array);
     }
 }

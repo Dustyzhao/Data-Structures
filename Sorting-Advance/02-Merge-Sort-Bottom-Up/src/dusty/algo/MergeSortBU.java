@@ -27,13 +27,13 @@ public class MergeSortBU {
          *同样考虑到边界问题，在进行内层merge操作时，i + size + size可能存在会比arr.length大的情况，此时我们直接取二者间较小值即可。
          *
          */
-        for (int size = 1; size < arr.length; size *= 2) {
-
-            for (int i = 0; i + size < arr.length; i += size + size) {
-                // 对 arr[i...i+sz-1] 和 arr[i+sz...i+2*sz-1] 进行归并
-                merge(arr,i,i + size -1,Math.min(i + size + size -1,arr.length - 1));
-            }
-        }
+//        for (int size = 1; size < arr.length; size *= 2) {
+//
+//            for (int i = 0; i + size < arr.length; i += size + size) {
+//                // 对 arr[i...i+sz-1] 和 arr[i+sz...i+2*sz-1] 进行归并
+//                merge(arr,i,i + size -1,Math.min(i + size + size -1,arr.length - 1));
+//            }
+//        }
 
         //同正常归并算法一样，一样可以对自底向上这中做出两处的优化.注释参考前边的递归算法实现
         int t = 16;
@@ -104,9 +104,11 @@ public class MergeSortBU {
      */
     public static void main(String[] args){
 
-        int N = 100000;
+        int N = 10;
         Integer[] array = SortTestHelper.generateRandomArray(N, 0, 1000);
+        SortTestHelper.printArray(array);
         SortTestHelper.testSort("dusty.algo.MergeSortBU",array);
+        SortTestHelper.printArray(array);
     }
 
 }

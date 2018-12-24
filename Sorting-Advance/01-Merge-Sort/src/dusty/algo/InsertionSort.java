@@ -37,7 +37,7 @@ public class InsertionSort {
             Comparable e = arr[i];
             //j保存e应该存放的位置
             int j = i;
-            for ( j = i; j > 1 && arr[j-1].compareTo(e) > 0; j--) {
+            for ( j = i; j > 0 && arr[j-1].compareTo(e) > 0; j--) {
 
                 arr[j] = arr[j - 1];
             }

@@ -37,7 +37,7 @@ public class InsertionSort {
             Comparable e = arr[i];
             //j保存e应该存放的位置
             int j = i;
-            for ( j = i; j > 1 && arr[j-1].compareTo(e) > 0; j--) {
+            for ( j = i; j > 0 && arr[j-1].compareTo(e) > 0; j--) {
 
                 arr[j] = arr[j - 1];
             }
@@ -53,8 +53,8 @@ public class InsertionSort {
      */
     public static void main(String[] args){
 
-        int N = 20000;
-        Integer[] array = SortTestHelper.generateRandomArray(N, 0, 10000);
+        int N = 10;
+        Integer[] array = SortTestHelper.generateRandomArray(N, 0, 10);
         SortTestHelper.printArray(array);
         SortTestHelper.testSort("dusty.algo.InsertionSort",array);
         SortTestHelper.printArray(array);

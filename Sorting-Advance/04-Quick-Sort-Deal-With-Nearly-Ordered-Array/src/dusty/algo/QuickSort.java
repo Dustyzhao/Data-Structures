@@ -22,6 +22,7 @@ public class QuickSort {
         int n = 15;
         if (r - l <= n) {
             InsertionSort.sort(arr,l,r);
+            return;
         }
 
         int p = partition(arr, l, r);
@@ -87,8 +88,10 @@ public class QuickSort {
      */
     public static void main(String[] args){
 
-        int N = 1000;
-        Integer[] array = SortTestHelper.generateRandomArray(N, 0, 1000);
+        int N = 10;
+        Integer[] array = SortTestHelper.generateRandomArray(N, 0, 10);
+//        Integer[] array = {5,0,1,3,2};
+        SortTestHelper.printArray(array);
         SortTestHelper.testSort("dusty.algo.QuickSort",array);
         SortTestHelper.printArray(array);
     }
