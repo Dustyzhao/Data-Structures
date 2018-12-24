@@ -42,7 +42,11 @@ public class QuickSort {
      */
     private static int partition(Comparable[] arr, int l, int r) {
 
-        //所选元素(序列的第一位元素)标记为v
+
+        // 随机在arr[l...r]的范围中, 选择一个数值作为标定点pivot
+        // 这个交换动作在保证原程序逻辑不大变得情况下，大幅优化了针对<几乎有序数组>的排序性能
+        swap(arr,l, (int) (Math.random()*(r-l+1))+l);
+        //所选元素(交换位置后序列的第一位元素)标记为v
         Comparable v = arr[l];
         // arr[l+1...j] < v ; arr[j+1...i) > v
         int j = l;
@@ -88,11 +92,11 @@ public class QuickSort {
      */
     public static void main(String[] args){
 
-        int N = 10;
-        Integer[] array = SortTestHelper.generateRandomArray(N, 0, 10);
+        int N = 1000000;
+        Integer[] array = SortTestHelper.generateRandomArray(N, 0, 10000);
 //        Integer[] array = {5,0,1,3,2};
-        SortTestHelper.printArray(array);
+//        SortTestHelper.printArray(array);
         SortTestHelper.testSort("dusty.algo.QuickSort",array);
-        SortTestHelper.printArray(array);
+//        SortTestHelper.printArray(array);
     }
 }

@@ -9,7 +9,7 @@ import java.util.Arrays;
  */
 public class Main {
     public static void main(String[] args){
-        int N = 20000;
+        int N = 1000000;
 
         //测试1，一般测试
         System.out.println("测试两种算法对随机数组的排序性能，数组的长度为："+ N + ",范围：[0,"+ N +"]");
@@ -17,10 +17,10 @@ public class Main {
         Integer[] array1 = SortTestHelper.generateRandomArray(N,0,N);
         Integer[] array2 = Arrays.copyOf(array1, array1.length);
 
-        SortTestHelper.printArray(array2);
+//        SortTestHelper.printArray(array2);
         SortTestHelper.testSort("dusty.algo.MergeSort", array1);
         SortTestHelper.testSort("dusty.algo.QuickSort", array2);
-        SortTestHelper.printArray(array2);
+//        SortTestHelper.printArray(array2);
 
         /**
          * 测试2，测试对近乎有序数组的排序效率
@@ -29,7 +29,7 @@ public class Main {
          * 但是当swapTimes小到一定程度, InsertionSort变得比MergeSort快
          */
 
-        int swapTime = 50;
+        int swapTime = 100;
         System.out.println("测试两种算法对近乎有序数组的排序性能，数组的长度为：" + N + " , swap time =" + swapTime);
 
         Integer[] array4 = SortTestHelper.generateNearlyOrderedArray(N, swapTime);
@@ -37,6 +37,7 @@ public class Main {
 
         SortTestHelper.testSort("dusty.algo.MergeSort", array4);
         SortTestHelper.testSort("dusty.algo.QuickSort", array5);
+//        SortTestHelper.printArray(array5);
 
     }
 }
