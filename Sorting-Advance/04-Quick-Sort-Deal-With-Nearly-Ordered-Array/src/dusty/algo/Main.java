@@ -3,11 +3,7 @@ package dusty.algo;
 import java.util.Arrays;
 
 /**
- * 比较MergeSort和MergeSortBU两种排序算法的性能效率
- * 实际运行效率差不多，较真得讲，从统计意义上讲，MergeSort要占优。
- *
- * MergeSortBU有其特点，其没有用到数组的特性：通过索引获取数组元素，
- * 正因如此，MergeSortBU可以很好利用O（nlogn）对‘链表’这样的数据结构进行排序
+ * 比较MergeSort和QuickSort两种排序算法的性能效率
  *
  * @author DUSTY
  */
@@ -23,7 +19,7 @@ public class Main {
 
         SortTestHelper.printArray(array2);
         SortTestHelper.testSort("dusty.algo.MergeSort", array1);
-        SortTestHelper.testSort("dusty.algo.MergeSortBU", array2);
+        SortTestHelper.testSort("dusty.algo.QuickSort", array2);
         SortTestHelper.printArray(array2);
 
         /**
@@ -40,7 +36,7 @@ public class Main {
         Integer[] array5 = Arrays.copyOf(array4, array4.length);
 
         SortTestHelper.testSort("dusty.algo.MergeSort", array4);
-        SortTestHelper.testSort("dusty.algo.MergeSortBU", array5);
+        SortTestHelper.testSort("dusty.algo.QuickSort", array5);
 
     }
 }

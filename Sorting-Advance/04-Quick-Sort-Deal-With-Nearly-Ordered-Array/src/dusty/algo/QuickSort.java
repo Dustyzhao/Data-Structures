@@ -54,8 +54,6 @@ public class QuickSort {
                 //System.out.println("j=  "+j);
                 //经过j++之后，此时已经是j+=1之后的了，所以下面不传入j+1，而是j。
                 swap(arr,j,i);
-
-                break;
             }
         }
         //一次partition之后，需要把v放到适当位置
