@@ -14,8 +14,14 @@ public class QuickSort {
      */
     public static void sort(Comparable[] arr,int l,int r) {
 
-        if (l >= r) {
-            return;
+//        if (l >= r) {
+//            return;
+//        }
+
+        //对于小规模数据(此处假设为15)，采用插入排序效果更好
+        int n = 15;
+        if (r - l <= n) {
+            InsertionSort.sort(arr,l,r);
         }
 
         int p = partition(arr, l, r);
