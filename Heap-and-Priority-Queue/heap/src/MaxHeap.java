@@ -23,6 +23,18 @@ public class MaxHeap<E extends Comparable<E>> {
     }
 
     /**
+     * heapify:把任意数组整理成堆的形状
+     *
+     * @param arr 待整理的数组
+     */
+    public MaxHeap(E[] arr) {
+        data = new Array<E>(arr);
+        for (int i = parent(arr.length - 1); i >= 0; i) {
+            siftDown(i);
+        }
+    }
+
+    /**
      * 查寻最大堆的元素个数
      *
      * @return
@@ -147,5 +159,19 @@ public class MaxHeap<E extends Comparable<E>> {
         return data.get(0);
     }
 
+    /**
+     * 取出堆中的最大元素，并且替换成元素e
+     *
+     * @param e
+     * @return
+     */
+    public E replace(E e) {
+        E max = findMax();
+
+        data.set(0, e);
+        siftDown(0);
+
+        return max;
+    }
 
 }
