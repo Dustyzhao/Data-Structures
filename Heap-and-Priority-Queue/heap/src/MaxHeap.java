@@ -117,10 +117,10 @@ public class MaxHeap<E extends Comparable<E>> {
      */
     private void siftDown(int i) {
         //i没有子节点时停止循环
-        while (leftChild(i) <= data.getSize()) {
+        while (leftChild(i) <= data.getSize() - 1) {
             int j = leftChild(i);
             //比较其两个子节点的大小
-            if (j < data.getSize() && data.get(j + 1).compareTo(data.get(j)) > 0) {
+            if (j < data.getSize() - 1 && data.get(j + 1).compareTo(data.get(j)) > 0) {
                 //保证j永远代表较大的子节点的索引值
                 j++;
             }
