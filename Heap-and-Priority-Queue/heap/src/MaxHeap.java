@@ -86,13 +86,65 @@ public class MaxHeap<E extends Comparable<E>> {
 
     /**
      * 插入元素siftup“上浮”操作：维护最大堆的性质
+     *
      * @param i 插入元素在数组中表示的索引
      */
     private void siftUp(int i) {
         while (i > 0 && data.get(parent(i)).compareTo(data.get(i)) < 0) {
-            data.swap(i,parent(i));
+            data.swap(i, parent(i));
             i = parent(i);
         }
+    }
+
+    /**
+     * 从（最大）堆中取出最大值
+     *
+     * @return 堆的最大值
+     */
+    public E extractMax() {
+        E max = findMax();
+        data.swap(0, data.getSize() - 1);
+        data.removeLast();
+
+        siftDown(0);
+        return max;
+    }
+
+    /**
+     * “新根节点“的siftDown，维系最大堆的性质
+     *
+     * @param i “新根节点“的索引值
+     */
+    private void siftDown(int i) {
+        //i没有子节点时停止循环
+        while (leftChild(i) <= data.getSize()) {
+            int j = leftChild(i);
+            //比较其两个子节点的大小
+            if (j < data.getSize() && data.get(j + 1).compareTo(data.get(j)) > 0) {
+                //保证j永远代表较大的子节点的索引值
+                j++;
+            }
+            //比较”新根节点“与较大子节点的大小
+            if (data.get(j).compareTo(data.get(i)) <= 0) {
+                break;
+            }
+            data.swap(i, j);
+            //维系i
+            i = j;
+        }
+    }
+
+    /**
+     * 查看堆中最大元素
+     * 用户也会使用，修改成public
+     *
+     * @return 堆中最大元素，即根节点
+     */
+    public E findMax() {
+        if (data.getSize() == 0) {
+            throw new IllegalArgumentException("堆是空的");
+        }
+        return data.get(0);
     }
 
 
