@@ -3,6 +3,7 @@ import java.util.Random;
 
 /**
  * 测试用例
+ *
  * @author DUSTY
  */
 public class Main {
@@ -24,13 +25,13 @@ public class Main {
 
         //用一个动态数组来存储从BST中删除的最小元素
         ArrayList<Integer> nums = new ArrayList<>();
-        while (!bst.isEmpty()){
+        while (!bst.isEmpty()) {
             nums.add(bst.removeMin());
         }
         System.out.println(nums);
         //验证nums中确实是从小到大排序的
         for (int i = 1; i < nums.size(); i++) {
-            if (nums.get(i-1) > nums.get(i)){
+            if (nums.get(i - 1) > nums.get(i)) {
                 throw new IllegalArgumentException("Error");
             }
         }
