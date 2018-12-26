@@ -236,4 +236,14 @@ public class Array<E> {
         res.append("]");
         return res.toString();
     }
+
+    public void swap(int i, int j) {
+        if (i < 0 || i > size || j < 0 || j > size) {
+            throw new IllegalArgumentException("非法索引");
+        }
+        //交换位置
+        E e = data[i];
+        data[i] = data[j];
+        data[j] = e;
+    }
 }

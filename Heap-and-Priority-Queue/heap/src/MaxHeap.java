@@ -74,6 +74,26 @@ public class MaxHeap<E extends Comparable<E>> {
         return index * 2 + 2;
     }
 
+    /**
+     * 向堆中添加元素
+     *
+     * @param e 待添加元素
+     */
+    public void add(E e) {
+        data.addLast(e);
+        siftUp(data.getSize() - 1);
+    }
+
+    /**
+     * 插入元素siftup“上浮”操作：维护最大堆的性质
+     * @param i 插入元素在数组中表示的索引
+     */
+    private void siftUp(int i) {
+        while (i > 0 && data.get(parent(i)).compareTo(data.get(i)) < 0) {
+            data.swap(i,parent(i));
+            i = parent(i);
+        }
+    }
 
 
 }
