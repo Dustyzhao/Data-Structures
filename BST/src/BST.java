@@ -281,7 +281,7 @@ public class BST<E extends Comparable<E>> {
         if (size == 0) {
             throw new IllegalArgumentException("BST is empty!");
         }
-        return minmum(root).e;
+        return maximum(root).e;
     }
 
     /**
@@ -336,7 +336,7 @@ public class BST<E extends Comparable<E>> {
     }
 
     /**
-     * 从二分搜索树中删除最大值所在的节点，并返回最小值
+     * 从二分搜索树中删除最大值所在的节点
      *
      * @return
      */
