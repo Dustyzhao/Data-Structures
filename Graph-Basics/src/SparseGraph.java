@@ -100,4 +100,14 @@ public class SparseGraph {
         }
         return false;
     }
+
+    /**
+     * 返回图中一个顶点的所有邻边
+     *
+     * @param v 考察的节点
+     * @return
+     */
+    public Iterable<Integer> adj(int v) {
+        return g[v];
+    }
 }

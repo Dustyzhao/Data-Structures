@@ -1,3 +1,5 @@
+import java.util.Vector;
+
 /**
  * 稠密图的实现 -- 邻接矩阵
  *
@@ -76,13 +78,29 @@ public class DenseGraph {
 
     /**
      * 判断给定的两点之间是否已存在边
-     *
+     * 时间复杂度：O(1)
      * @param v
      * @param w
      * @return boolean
      */
     private boolean hasEdge(int v, int w) {
         return g[v][w];
+    }
+
+    /**
+     * 返回图中一个顶点的所有邻边
+     *
+     * @param v 考察的元素
+     * @return
+     */
+    public Iterable<Integer> adj(int v) {
+        Vector<Integer> adjV = new Vector<>();
+        for (int i = 0; i < n; i++) {
+            if (g[v][i]) {
+                adjV.add(i);
+            }
+        }
+        return adjV;
     }
 
 }
