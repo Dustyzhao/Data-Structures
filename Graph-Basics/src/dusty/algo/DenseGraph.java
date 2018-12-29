@@ -115,8 +115,14 @@ public class DenseGraph implements Graph {
     public void show() {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                System.out.print(g[i][j] + "\t");
+//                System.out.print(g[i][j] + "\t");
+                if (g[i][j]) {
+                    System.out.print("1" + "\t");
+                } else {
+                    System.out.print("0" +"\t");
+                }
             }
+            System.out.println();
         }
     }
 

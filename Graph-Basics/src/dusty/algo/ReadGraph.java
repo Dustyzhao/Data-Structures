@@ -18,7 +18,7 @@ public class ReadGraph {
 
     private Scanner scanner;
 
-    public ReadGraph(Graph graph, String fileName) {
+    public ReadGraph(Graph graph, String fileName) throws FileNotFoundException {
 
         readFile(fileName);
 
@@ -49,18 +49,16 @@ public class ReadGraph {
      *
      * @param fileName
      */
-    private void readFile(String fileName) {
+    private void readFile(String fileName) throws FileNotFoundException {
         assert fileName!=null;
 
         File file = new File(fileName);
         if (file.exists()) {
-            try {
+
                 FileInputStream fileInputStream = new FileInputStream(fileName);
                 scanner = new Scanner(new BufferedInputStream(fileInputStream), "utf-8");
                 scanner.useLocale(Locale.ENGLISH);
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
+
         } else {
             throw new IllegalArgumentException("文件不存在");
         }

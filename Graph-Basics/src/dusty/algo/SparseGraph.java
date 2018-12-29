@@ -122,11 +122,11 @@ public class SparseGraph implements Graph{
     public void show() {
 
         for (int i = 0; i < n; i++) {
-            System.out.println("节点："+i+":\t");
+            System.out.print("节点："+i+":\t");
             for (int j = 0; j < g[i].size(); j++) {
-                System.out.println(g[i].elementAt(j)+"\t");
-                System.out.println();
+                System.out.print(g[i].elementAt(j)+"\t");
             }
+            System.out.println();
         }
     }
 }
