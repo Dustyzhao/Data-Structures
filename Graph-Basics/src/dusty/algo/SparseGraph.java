@@ -1,3 +1,5 @@
+package dusty.algo;
+
 import java.util.Vector;
 
 /**
@@ -5,7 +7,7 @@ import java.util.Vector;
  *
  * @author DUSTY
  */
-public class SparseGraph {
+public class SparseGraph implements Graph{
 
     /**
      * 图的点
@@ -51,6 +53,7 @@ public class SparseGraph {
      *
      * @return
      */
+    @Override
     public int V() {
         return n;
     }
@@ -60,6 +63,7 @@ public class SparseGraph {
      *
      * @return
      */
+    @Override
     public int E() {
         return m;
     }
@@ -72,6 +76,7 @@ public class SparseGraph {
      * @param v 节点
      * @param w 节点
      */
+    @Override
     public void addEdge(int v, int w) {
 
         //搭建v和w之间的关系：以v开头的vector，v→w
@@ -91,7 +96,8 @@ public class SparseGraph {
      * @param w 给定的一点
      * @return boolean
      */
-    private boolean hasEdge(int v, int w) {
+    @Override
+    public boolean hasEdge(int v, int w) {
         //遍历以v开头的vector，若其中存在w，返回true
         for (int i = 0; i < g[v].size(); i++) {
             if (g[v].elementAt(i) == w) {
@@ -107,7 +113,20 @@ public class SparseGraph {
      * @param v 考察的节点
      * @return
      */
+    @Override
     public Iterable<Integer> adj(int v) {
         return g[v];
+    }
+
+    @Override
+    public void show() {
+
+        for (int i = 0; i < n; i++) {
+            System.out.println("节点："+i+":\t");
+            for (int j = 0; j < g[i].size(); j++) {
+                System.out.println(g[i].elementAt(j)+"\t");
+                System.out.println();
+            }
+        }
     }
 }

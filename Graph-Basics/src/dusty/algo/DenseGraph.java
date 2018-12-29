@@ -1,3 +1,5 @@
+package dusty.algo;
+
 import java.util.Vector;
 
 /**
@@ -5,7 +7,7 @@ import java.util.Vector;
  *
  * @author DUSTY
  */
-public class DenseGraph {
+public class DenseGraph implements Graph {
 
     /**
      * 点数
@@ -42,6 +44,7 @@ public class DenseGraph {
      *
      * @return
      */
+    @Override
     public int V() {
         return n;
     }
@@ -51,6 +54,7 @@ public class DenseGraph {
      *
      * @return
      */
+    @Override
     public int E() {
         return m;
     }
@@ -61,6 +65,7 @@ public class DenseGraph {
      * @param v 图中一点
      * @param w 图中一点
      */
+    @Override
     public void addEdge(int v, int w) {
 
         if (hasEdge(v, w)) {
@@ -79,11 +84,13 @@ public class DenseGraph {
     /**
      * 判断给定的两点之间是否已存在边
      * 时间复杂度：O(1)
+     *
      * @param v
      * @param w
      * @return boolean
      */
-    private boolean hasEdge(int v, int w) {
+    @Override
+    public boolean hasEdge(int v, int w) {
         return g[v][w];
     }
 
@@ -93,6 +100,7 @@ public class DenseGraph {
      * @param v 考察的元素
      * @return
      */
+    @Override
     public Iterable<Integer> adj(int v) {
         Vector<Integer> adjV = new Vector<>();
         for (int i = 0; i < n; i++) {
@@ -101,6 +109,15 @@ public class DenseGraph {
             }
         }
         return adjV;
+    }
+
+    @Override
+    public void show() {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print(g[i][j] + "\t");
+            }
+        }
     }
 
 }
