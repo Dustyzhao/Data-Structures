@@ -7,7 +7,7 @@
  */
 public class MaxHeap<E extends Comparable<E>> {
 
-    private Array<E> data;
+    protected Array<E> data;
 
     /**
      * 用户知道MaxHeap容量时，可直接创建指定容量的数组

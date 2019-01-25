@@ -23,8 +23,9 @@ public class Main {
         for (int i = 1; i < n; i++) {
             if (arr[i - 1] < arr[i]) {
                 throw new IllegalArgumentException("error");
+            } else {
+                System.out.println("correct！");
             }
         }
-        System.out.println("correct！");
     }
 }
