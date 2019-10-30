@@ -39,7 +39,7 @@ public class LRUBaseLinkedList<T> {
      * @param data
      */
     public void add(T data) {
-        Node preNode = findPreNode(data);
+        Node<T> preNode = findPreNode(data);
 
         //链表中已存在，则删除该数据，重新插入到链表头部
         if (preNode != null) {
@@ -80,8 +80,8 @@ public class LRUBaseLinkedList<T> {
      * @param data
      */
     private void insertElementIntotheBegin(T data) {
-        Node next = headNode.getNext();
-        headNode.setNext(new Node(data, next));
+        Node<T> next = headNode.getNext();
+        headNode.setNext(new Node<T>(data, next));
         length++;
     }
 
@@ -90,8 +90,8 @@ public class LRUBaseLinkedList<T> {
      *
      * @param preNode
      */
-    private void deleteElement(Node preNode) {
-        Node forDel = preNode.getNext();
+    private void deleteElement(Node<T> preNode) {
+        Node<T> forDel = preNode.getNext();
         preNode.setNext(forDel.getNext());
         forDel.setNext(null);
         length--;
@@ -104,8 +104,8 @@ public class LRUBaseLinkedList<T> {
      * @param data
      * @return
      */
-    private Node findPreNode(T data) {
-        Node node = headNode;
+    private Node<T> findPreNode(T data) {
+        Node<T> node = headNode;
         while (node.getNext() != null) {
             //如果找到了
             if (data.equals(node.getNext().getElement())) {
@@ -118,9 +118,9 @@ public class LRUBaseLinkedList<T> {
     }
 
     public void printAll() {
-        Node next = headNode.getNext();
+        Node<T> next = headNode.getNext();
         while (next != null) {
-            System.out.println(next.getElement() + ",");
+            System.out.print(next.getElement() + ",");
             next=next.getNext();
         }
         System.out.println();
@@ -132,9 +132,9 @@ public class LRUBaseLinkedList<T> {
 
         private T element;
 
-        private Node next;
+        private Node<T> next;
 
-        public Node(T element, Node next) {
+        public Node(T element, Node<T> next) {
             this.element = element;
             this.next = next;
         }
@@ -155,18 +155,19 @@ public class LRUBaseLinkedList<T> {
             this.element = element;
         }
 
-        public Node getNext() {
+        public Node<T> getNext() {
             return next;
         }
 
-        public void setNext(Node next) {
+        public void setNext(Node<T> next) {
             this.next = next;
         }
     }
 
     public static void main(String[] args){
         //测试LRUBaseLinkedList
-        LRUBaseLinkedList lruBaseLinkedList = new LRUBaseLinkedList();
+        LRUBaseLinkedList<Integer> lruBaseLinkedList = new LRUBaseLinkedList<Integer>();
+        System.out.println("请输入：");
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
